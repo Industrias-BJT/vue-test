@@ -21,7 +21,6 @@ let DirectiveFor = {
             </ul>
         </div>
     `,
-    sdtgsadgsd
     
     data() {
 
