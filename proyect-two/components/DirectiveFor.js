@@ -1,25 +1,27 @@
 let DirectiveFor = {
     template:`
-        <div>
-            <h1 v-text='title.one'></h1>
-            <p v-html='text'></p>
-            <h2 v-text='title.two'></h2>
-            <ul>
-                <li v-for='colors in list' v-text='colors'></li>
-            </ul>
-            <h2 v-text='title.trhee'></h2>
-            <ul>
-                <li v-for='(user,key) in user_1' :key='index'>
-                    {{key}}:{{user}}
-                </li>
-            </ul>
-            <h2 v-text='title.four'></h2>
-            <ul>
-                <li v-for='(users,key) in users' :key='index'>
-                    {{key}}:{{users}}
-                </li>
-            </ul>
-        </div>
+                <div>
+                    <h1 v-text='title.one'></h1>
+                    <p v-html='text'></p>
+                    <h2 v-text='title.two'></h2>
+                    <ul>
+                        <li v-for='colors in list' v-text='colors'></li>
+                    </ul>
+                    <h2 v-text='title.trhee'></h2>
+                    <ul>
+                        <li v-for='(user, key) in user_1' :key='index'>
+                            {{key}}:{{user}}
+                        </li>
+                    </ul>
+                    <h2 v-text='title.four'></h2>
+                    <ul>
+                        <li v-for='(users2, index) in users' :key='index'>
+                            name: {{ users2.name }}<br>
+                            last name: {{users2.last_name}}<br>
+                            age: {{users2.age}}
+                        </li>
+                    </ul>
+                </div>
     `,
     
     data() {
