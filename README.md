@@ -1,3 +1,3 @@
 # vue-test
 
-Pruebas para futuros proyectos con el framkork para front-end con Vue.js
+Pruebas para futuros proyectos con el framework para front-end con Vue.js
