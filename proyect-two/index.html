@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inicios con Vue JS</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
+        <p v-cloak>{{title.one}}</p>
         <header-principal></header-principal>
         <!-- <saludar-comp></saludar-comp> -->
         <vue-directives></vue-directives>
@@ -26,11 +32,6 @@
     <script src="./components/DirectiveSlot.js"></script>
     <script src="./components/DirectivePreAndCloak.js"></script>
     <script src="./components/VueDirectves.js"></script>
-    <script>
-        var app = new Vue({
-        el: '#app'
-        })
-        
-    </script>
+    <script src="./components/index.js"></script>
 </body>
 </html>
