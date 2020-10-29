@@ -1,21 +1,21 @@
 let DirectiveOn ={
 
     template:`
-
-    <div>
-        <h1 v-text="title.one"></h1>
-        <p v-text="paragrah.one"></p>
-    </div>
-
+        <div>
+            <h1 v-text='title.one'></h1>
+            <p v-html='text.one'></p>
+        </div>
     `,
-    datos(){
+    
+    data() {
+
         return {
             title:{
-                one:'directive with v-on'
+                one:'child test of Directive ON'
             },
-            paragrah:{
-                one:'test v-one'
-            }
+            text:{
+                one:'<i>text of test v-on</i>'
+            } 
         }
     }
 
