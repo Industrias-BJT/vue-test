@@ -4,7 +4,8 @@ let DirectiveOn ={
         <div>
             <h1 v-text='title.one'></h1>
             <p v-text='text.one'></p>
-            <button v-on:click="hi" >on click</button>
+            <button @click='hi' >Buy pelic</button>
+            <p>Quedan: {{text.peliculas}} peliculas</p>
         </div>
     `,
     
@@ -12,16 +13,25 @@ let DirectiveOn ={
 
         return {
             title:{
-                one:'child test of Directive ON'
+                one:'child test of Directive ON',
+                title_pelicula:'Dedpool'
             },
             text:{
-                one:'text of test v-on'
+                one:'text of test v-on',
+                name:"milton",
+                peliculas:4
             } 
         }
     },
     methods:{
-        hi:()=>{
-            alert('Hi milton')
+        
+        hi(){ 
+            if (this.text.peliculas>0) {
+                this.text.peliculas--
+
+                return alert(` haz adquirido la pelicula de ${this.title.title_pelicula} gracias por la compra`)
+            }   
+            alert('Pelicula agotada')
         }
     }
 

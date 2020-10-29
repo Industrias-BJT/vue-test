@@ -8,6 +8,9 @@ Vue.component('vue-directives',{
         <DirectiveIf />
         <DirectiveFor />
         <DirectiveOn />
+        <DirectiveModel />
+        <DirectiveSlot />
+        <DirectivePreAndCloak />
         </div>
     `,
     
@@ -27,7 +30,10 @@ Vue.component('vue-directives',{
         DirectiveShow,
         DirectiveIf,
         DirectiveFor,
-        DirectiveOn
+        DirectiveOn,
+        DirectiveModel,
+        DirectiveSlot,
+        DirectivePreAndCloak
     }
 })
 

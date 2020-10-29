@@ -26,6 +26,7 @@ let DirectiveIf = {
                 vip:'The user is VIP',
                 negative:"The user Do't permession",
                 all:'the user permession positive and is VIP'
+                
             },
             user:{
                 permession:false,
