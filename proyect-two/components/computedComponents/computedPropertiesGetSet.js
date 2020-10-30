@@ -1,4 +1,4 @@
-Vue.component('computed-properties',{
+Vue.component('computed-properties-get-set',{
     template:`
     <div>
     <h1 v-text='title.one'></h1>
@@ -10,7 +10,7 @@ Vue.component('computed-properties',{
     data(){
         return{
             title:{
-                one:'computed Properties'
+                one:'computed Properties on Getter and setter'
             },
             user:{
                 name:'Milton',
@@ -21,8 +21,17 @@ Vue.component('computed-properties',{
         }
     },
     computed:{
-        fullname(){
-            return `Hi ${this.user.name} ${this.user.lastName}`
+        fullname:{
+            get(){
+                return ` ${this.user.name} ${this.user.lastName}`
+            },
+            set(e){
+                let name = e.split(' ')
+
+                this.user.name= name[0]
+                this.user.lastName= name[1]
+            }
+           
         },
         calAge(){
             let date= new Date()

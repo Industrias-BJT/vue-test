@@ -1,0 +1,31 @@
+Vue.component('props-com',{
+    template:`
+        <div>
+            <h1> Peliculas Props</h1>
+        </div>
+    `,
+    data(){
+        return{
+            movies:[
+                {
+                    id:'',
+                    title:'',
+                    synopsis:'',
+                    cover:''
+                },
+                {
+                    id:'',
+                    title:'',
+                    synopsis:'',
+                    cover:''
+                },
+                {
+                    id:'',
+                    title:'',
+                    synopsis:'',
+                    cover:''
+                }
+            ]
+        }
+    }
+})

@@ -4,7 +4,8 @@ var vm = new Vue({
         return {
             title:{
                 one:'Test on v-cloak',
-                two:'Compiuted Propierties'
+                two:'Compiuted Propierties',
+                three:'Peliculas Props'
             }
         }
     }
