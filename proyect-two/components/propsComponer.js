@@ -1,31 +1,45 @@
 Vue.component('props-com',{
     template:`
         <div>
-            <h1> Peliculas Props</h1>
+        <h1 > Peliculas Props</h1>
+            <MovieComp v-for='(movie,key) in movies' 
+                :key='key' 
+                :id='movie.id' 
+                :title='movie.title' 
+                :synopsis='movie.synopsis' 
+                :cover='movie.cover'
+                :like='movie.like'
+            />
         </div>
     `,
     data(){
         return{
             movies:[
                 {
-                    id:'',
-                    title:'',
-                    synopsis:'',
-                    cover:''
+                    id: 1,
+                    title: 'Titanic',
+                    synopsis: 'Durante las labores de recuperación de los restos del famoso trasatlántico Titanic, una anciana norteamericana se pone en contacto con la expedición para acudir…',
+                    cover: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/zraTDtulFw2wrpyuYf646k95MNq.jpg',
+                    like:false
                 },
                 {
-                    id:'',
-                    title:'',
-                    synopsis:'',
-                    cover:''
+                    id: 2,
+                    title: 'El Rey León',
+                    synopsis: 'Un remake del clásico animado de Disney de 1994 El rey león que estará dirigido por Jon Favreu. Simba (Donald Glover) es el hijo del rey de los leones, Mufasa…',
+                    cover: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/3A8ca8WOBacCRujSKJ2tCVKsieQ.jpg',
+                    like:false
                 },
                 {
-                    id:'',
-                    title:'',
-                    synopsis:'',
-                    cover:''
+                    id: 3,
+                    title: 'Toy Story',
+                    synopsis:'Woody siempre ha tenido claro cuál es su labor en el mundo y cuál es su prioridad: cuidar a su dueño, ya sea Andy o Bonnie. Sin embargo, Woody descubrirá lo grand…',
+                    cover: 'http://d1poh340f4imgl.cloudfront.net/upload/images/534x326/2015/05/20/66668be7c7f6ef8faea78a39ff2c8f89_534x326.jpg',
+                    like:false
                 }
             ]
         }
+    },
+    components:{
+        MovieComp
     }
 })

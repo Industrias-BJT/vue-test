@@ -2,7 +2,7 @@ let DirectiveOn ={
 
     template:`
         <div>
-            <h1 v-text='title.one'></h1>
+            <h1 id="test1" class="test2" v-text='title.one'></h1>
             <p v-text='text.one'></p>
             <button @click='hi' >Buy pelic</button>
             <p>Quedan: {{text.peliculas}} peliculas</p>
