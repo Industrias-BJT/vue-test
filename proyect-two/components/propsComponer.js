@@ -2,13 +2,14 @@ Vue.component('props-com',{
     template:`
         <div>
         <h1 > Peliculas Props</h1>
-            <MovieComp v-for='(movie,key) in movies' 
+            <MovieComp v-for='(movie, key) in movies' 
                 :key='key' 
                 :id='movie.id' 
                 :title='movie.title' 
                 :synopsis='movie.synopsis' 
                 :cover='movie.cover'
                 :like='movie.like'
+                @toggleLike='onToggleLike'
             />
         </div>
     `,
@@ -41,5 +42,12 @@ Vue.component('props-com',{
     },
     components:{
         MovieComp
+    },
+    methods:{
+        onToggleLike(){
+            let moviesLike = movies.like.find(movie=>movie.like ==movie.id)
+
+
+        }
     }
 })

@@ -4,17 +4,17 @@ let MovieComp = {
         <img :src='cover'></img>
         <h2 v-text='title'></h2>
         <p v-text='synopsis'></p>
-        <button v-text="like ? 'Favorite' : 'Add to Favorite' "></button>
+        <button @click="toggleLike" v-text="like ? 'Favorite' : 'Add to Favorite' "></button>
+        <hr>
         </div>
     `,
     props:{
-        
             id:{
-                type:Number,
-                required:true,
+                type: Number,
+                required:true
             },
             title:{
-                type:String,
+                type: String,
                 required:true
             },
             synopsis:{
@@ -28,12 +28,20 @@ let MovieComp = {
             like:{
                 type:Boolean,
                 required:true,
-                default(){
+                default (){
                     return false
                 }
+            }
+        },
+        methods:{
+            toggleLike(){
 
+                let datos= {
+                    id:this.id,
+                    like:!this.like
+                }
 
-            },
-        
-    }
+                this.$emit('toggleLike', datos)
+            }
+        }
 }
