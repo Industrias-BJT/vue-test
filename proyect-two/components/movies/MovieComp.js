@@ -19,7 +19,7 @@ let MovieComp = {
             },
             synopsis:{
                 type:String,
-                dafault:'No posee synopsis'
+                required:true
             },
             cover:{
                 type:String,
@@ -36,12 +36,12 @@ let MovieComp = {
         methods:{
             toggleLike(){
 
-                let datos= {
+                let data= {
                     id:this.id,
                     like:!this.like
                 }
 
-                this.$emit('toggleLike', datos)
+                this.$emit('toggleLike', data)
             }
         }
 }

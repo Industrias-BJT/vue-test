@@ -1,10 +1,18 @@
-let MovieFav = {
-    templeate:`
+let movieFav = {
+    template:`
     <div class="movieFav-wrapper">
-        <div class="movieFav">
-        favorito
+        <div :id="'fav-' + _uid" class="movieFav">
+        
         </div>
-    </div>`
-    
+    </div>`,
+    mounted(){
+        let vm=this
+        let $element = document.getElementById(`fav-${this._uid}`)
+        $element.addEventListener('animationend', function() {
+            vm.$emit('hideFav',false)
+            
+        })
+        
+    }
     
 }

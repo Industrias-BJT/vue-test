@@ -10,7 +10,9 @@ Vue.component('props-com',{
                 :cover='movie.cover'
                 :like='movie.like'
                 @toggleLike='onToggleLike'
+               
             />
+            <movieFav v-if='showLike'  @hideFav='onHideFav'/>
         </div>
     `,
     data(){
@@ -37,17 +39,24 @@ Vue.component('props-com',{
                     cover: 'http://d1poh340f4imgl.cloudfront.net/upload/images/534x326/2015/05/20/66668be7c7f6ef8faea78a39ff2c8f89_534x326.jpg',
                     like:false
                 }
-            ]
+            ],
+            showLike:false,
         }
     },
     components:{
-        MovieComp
+        MovieComp,
+        movieFav
     },
     methods:{
-        onToggleLike(){
-            let moviesLike = movies.like.find(movie=>movie.like ==movie.id)
-
-
+        onToggleLike(data){
+            let moviesLike = this.movies.find(movie => movie.id == data.id)
+            moviesLike.like=data.like
+            this.showLike=data.like
+            
+        },
+        onHideFav (show) {
+            this.showLike = show
+            /* alert('asf') */
         }
     }
 })
