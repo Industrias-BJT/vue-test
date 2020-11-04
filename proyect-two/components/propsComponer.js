@@ -12,7 +12,7 @@ Vue.component('props-com',{
                 @toggleLike='onToggleLike'
                
             />
-            <movieFav v-if='showLike'  @hideFav='onHideFav'/>
+            <movieFav :show.sync='showLike'/>
         </div>
     `,
     data(){
@@ -52,11 +52,7 @@ Vue.component('props-com',{
             let moviesLike = this.movies.find(movie => movie.id == data.id)
             moviesLike.like=data.like
             this.showLike=data.like
-            
         },
-        onHideFav (show) {
-            this.showLike = show
-            /* alert('asf') */
-        }
+
     }
 })

@@ -35,13 +35,11 @@ let MovieComp = {
         },
         methods:{
             toggleLike(){
-
                 let data= {
                     id:this.id,
                     like:!this.like
                 }
-
                 this.$emit('toggleLike', data)
-            }
+            },
         }
 }
