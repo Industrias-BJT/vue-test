@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class='compProps'>
+        <h1 > Peliculas Props</h1>
+        <div class="conteiner">
+            <div class="arow">
+                <MovieComp :ref="'movie-'+movie.id" class='movieComp' v-for='(movie, key) in movies' 
+                :key='key' 
+                :id='movie.id' 
+                :title='movie.title' 
+                :synopsis='movie.synopsis' 
+                :cover='movie.cover'
+                :like='movie.like'
+            />
+            </div>
+        </div>
+            
+            <movieFav ref='movieFav' :show.sync='showLike'/>
+        </div>
+</body>
+</html>

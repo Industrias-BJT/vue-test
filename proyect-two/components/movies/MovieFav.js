@@ -13,6 +13,11 @@ let movieFav = {
             }
         }
     },
+    data(){
+        return{
+            message:'message from test'
+        }
+    },
     mounted(){
         let vm=this
         let $element = document.getElementById(`fav-${this._uid}`)

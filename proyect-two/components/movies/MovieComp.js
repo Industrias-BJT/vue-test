@@ -4,7 +4,7 @@ let MovieComp = {
         <img :src='cover'></img>
         <h2 v-text='title'></h2>
         <p v-text='synopsis'></p>
-        <button @click="toggleLike" v-text="like ? 'Favorite' : 'Add to Favorite' "></button>
+        <button @click="toggleLike" :class="btnStatus" v-text="like ? 'Favorite' : 'Add to Favorite' "></button>
         <hr>
         </div>
     `,
@@ -33,13 +33,31 @@ let MovieComp = {
                 }
             }
         },
+        data(){
+            return{
+
+                Myclass:{
+                    btnLike:true,
+                    btnLight:false
+                }
+
+            }
+        },
+        computed:{
+            btnStatus(){
+                return this.like ? 'btnLike' : 'btnLight'
+            }
+        },
         methods:{
             toggleLike(){
-                let data= {
-                    id:this.id,
-                    like:!this.like
-                }
-                this.$emit('toggleLike', data)
+                    let movie = this.$parent.movies.find(m=>m.id==this.id)
+                    movie.like=!this.like
+                    if (!this.like) {
+                        this.$parent.showLike=true
+                    }
+                    
             },
-        }
+        },
+
+
 }

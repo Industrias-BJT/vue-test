@@ -1,0 +1,71 @@
+.arow {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (80vw)[1];
+      grid-template-columns: repeat(1, 80vw);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.arow .movieComp {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.arow .movieComp p {
+  width: 80%;
+  margin: auto;
+}
+
+.arow .movieComp h2 {
+  text-align: center;
+}
+
+.arow .movieComp button {
+  width: 40%;
+  display: -ms-grid;
+  display: grid;
+  margin: auto;
+  position: relative;
+  top: 1em;
+  border-color: #00835e;
+  border-radius: 0.5em;
+  color: #fff;
+}
+
+.arow .movieComp .btnLike {
+  background-color: #00aa8a;
+}
+
+.arow .movieComp .btnLight {
+  background-color: #00aa8b73;
+}
+
+h1 {
+  text-align: center;
+}
+
+img {
+  max-width: 125px;
+  height: 200px;
+  margin: auto;
+}
+
+@media screen and (min-width: 400px) {
+  .arow {
+    -ms-grid-columns: (50vw)[2];
+        grid-template-columns: repeat(2, 50vw);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .arow {
+    -ms-grid-columns: (30vw)[3];
+        grid-template-columns: repeat(3, 30vw);
+  }
+}
+/*# sourceMappingURL=style.css.map */

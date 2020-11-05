@@ -1,0 +1,55 @@
+.arow{
+    display: grid;
+    grid-template-columns: repeat(1,80vw);
+    justify-content: center;
+    .movieComp{
+        display: grid;
+        align-items: center;
+        p{
+            width:80%;
+            margin: auto;
+        }
+        h2{
+            text-align: center;
+        }
+        button{
+            width: 40%;
+           display: grid;
+           margin: auto;
+           position: relative;
+           top: 1em;
+           border-color: #00835e;
+           border-radius: 0.5em;
+           
+           color: #fff;
+           
+        }
+        .btnLike{
+            background-color: #00aa8a;
+        }
+        .btnLight{
+            background-color: #00aa8b73;
+        }
+        
+    }
+}
+h1{
+    text-align: center;
+}
+img{
+    max-width: 125px;
+    height:200px;
+    margin: auto;
+}
+@media screen and(min-width:400px){
+    .arow{
+
+        grid-template-columns: repeat(2,50vw);
+    }
+} 
+@media screen and(min-width:800px){
+    .arow{
+
+        grid-template-columns: repeat(3,30vw);
+    }
+} 

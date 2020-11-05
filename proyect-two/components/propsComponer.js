@@ -1,18 +1,21 @@
 Vue.component('props-com',{
     template:`
-        <div>
+    <div class='compProps'>
         <h1 > Peliculas Props</h1>
-            <MovieComp v-for='(movie, key) in movies' 
+        <div class="conteiner">
+            <div class="arow">
+                <MovieComp :ref="'movie-'+movie.id" class='movieComp' v-for='(movie, key) in movies' 
                 :key='key' 
                 :id='movie.id' 
                 :title='movie.title' 
                 :synopsis='movie.synopsis' 
                 :cover='movie.cover'
                 :like='movie.like'
-                @toggleLike='onToggleLike'
-               
             />
-            <movieFav :show.sync='showLike'/>
+            </div>
+        </div>
+            
+            <movieFav ref='movieFav' :show.sync='showLike'/>
         </div>
     `,
     data(){
@@ -47,12 +50,8 @@ Vue.component('props-com',{
         MovieComp,
         movieFav
     },
-    methods:{
-        onToggleLike(data){
-            let moviesLike = this.movies.find(movie => movie.id == data.id)
-            moviesLike.like=data.like
-            this.showLike=data.like
-        },
-
+    mounted(){
+        this.$refs.movieFav.message='cambio'
+        console.log(this.$refs.movieFav.message)
     }
 })
