@@ -1,6 +1,7 @@
 Vue.component('props-com',{
     template:`
     <div class='compProps'>
+    <h5>welcome {{user}}</h5>
         <h1 v-text='title.one'></h1>
         <div class="conteiner">
             <div class="arow">
@@ -14,7 +15,12 @@ Vue.component('props-com',{
             />
             </div>
         </div>
-            
+        <label> Rename
+        <input :value='user.name' @change='setNameUser'/>
+        <input :value='user.lastName' @change='setLastNameUser'/>
+        </label>
+           {{oldUser}}
+           
             <movieFav ref='movieFav' :show.sync='showLike'/>
         </div>
     `,
@@ -47,14 +53,48 @@ Vue.component('props-com',{
                 }
             ],
             showLike:false,
+            user:{
+                name:'Milton',
+                lastName:'Estrada',
+            },
+            oldUser:null
         }
     },
     components:{
         MovieComp,
         movieFav
     },
+    watch: {
+       user:{
+        handler: function (newValue,oldValue) {
+            console.log('New: ',newValue,' old: ',oldValue)
+        },
+        deep:true
+       },
+       'user.name':{
+        handler: function (newValue,oldValue) {
+            console.log('New: ',newValue,' old: ',oldValue)
+        },
+        deep:true
+       },
+       'user.lastName':{
+        handler: function (newValue,oldValue) {
+            console.log('New: ',newValue,' old: ',oldValue)
+        },
+        deep:true
+       }
+    },
     mounted(){
         this.$refs.movieFav.message='cambio'
         console.log(this.$refs.movieFav.message)
+    },
+    methods:{
+        setNameUser(e){
+            this.user.name =e.target.value
+        },
+        setLastNameUser(e){
+            this.user.lastName =e.target.value
+        },
+
     }
 })

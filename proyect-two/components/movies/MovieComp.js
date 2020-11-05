@@ -49,6 +49,11 @@ let MovieComp = {
 
             }
         },
+        watch:{
+            like (newVal,oldVal){
+                console.log(newVal,oldVal)
+            }
+        },
         computed:{
             btnStatus(){
                 return this.like ? 'btnLike' : 'btnLight'
