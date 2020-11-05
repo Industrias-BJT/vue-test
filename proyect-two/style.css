@@ -1,11 +1,7 @@
 .arow {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (80vw)[1];
-      grid-template-columns: repeat(1, 80vw);
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  grid-template-columns: repeat(1, 80vw);
+    justify-content: center;
 }
 
 .arow .movieComp {
@@ -47,25 +43,27 @@
 
 h1 {
   text-align: center;
+  text-transform: uppercase;
 }
 
 img {
-  max-width: 125px;
-  height: 200px;
+  max-width: 100%;
+  height: 100%;
   margin: auto;
 }
 
 @media screen and (min-width: 400px) {
   .arow {
-    -ms-grid-columns: (50vw)[2];
+    
         grid-template-columns: repeat(2, 50vw);
   }
 }
 
 @media screen and (min-width: 800px) {
   .arow {
-    -ms-grid-columns: (30vw)[3];
-        grid-template-columns: repeat(3, 30vw);
+    -ms-grid-columns: (30vw);
+    grid-template-columns: repeat(3, 30vw);
+    grid-gap: 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */

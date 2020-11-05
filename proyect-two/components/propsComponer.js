@@ -1,7 +1,7 @@
 Vue.component('props-com',{
     template:`
     <div class='compProps'>
-        <h1 > Peliculas Props</h1>
+        <h1 v-text='title.one'></h1>
         <div class="conteiner">
             <div class="arow">
                 <MovieComp :ref="'movie-'+movie.id" class='movieComp' v-for='(movie, key) in movies' 
@@ -20,6 +20,9 @@ Vue.component('props-com',{
     `,
     data(){
         return{
+            title:{
+                one:'movies'
+            },
             movies:[
                 {
                     id: 1,
