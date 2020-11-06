@@ -1,15 +1,16 @@
 let MovieComp = {
     template:`
         <div>
-        <img :src='cover'></img>
+        <img :src='cover | coverURL'></img>
         <h2 >{{title | mayus}}</h2>
         <p>{{synopsis | character}}</p>
-        <button @click="toggleLike" :class="btnStatus" >
-        <span v-text="like ? 'Favorite' : 'Add to Favorite' "></span>
-        <i  :class="heartStatus" class=" fa-heart"></i>
-        
-        </button> 
-        <hr>
+        <div class='contentBTN'>
+            <button @click="toggleLike" :class="btnStatus" >
+            <span v-text="like ? 'Favorite' : 'Add to Favorite' "></span>
+            <i  :class="heartStatus" class=" fa-heart"></i>
+            </button> 
+            <router-link :to="{name:'pelicula',params:{id}}" class="routerLink">Movie Details</router-link>
+        </div>
         </div>
     `,
     props:{

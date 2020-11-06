@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicios con Vue JS</title>
-    <style>
-        [v-cloak]{
-            display: none;
-        }
-    </style>
+    <title>Movies</title>
+    <link rel="stylesheet" href="./movie_fav.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e975be29d6.js" crossorigin="anonymous"></script>
 </head>
 <body>
+   
+    
     <div id="app">
-        <p v-cloak>{{title.one}}</p>
-        <header-principal></header-principal>
-        <!-- <saludar-comp></saludar-comp> -->
-        <vue-directives></vue-directives>
-    </div>
+        
+       <router-view></router-view> 
+
+    </div> 
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./components/saludarComp.js"></script>
-    <script src="./components/test-one.js"></script>
-    <!-- Directivas -->
-    <script src="./components/DirectiveShow.js"></script>
-    <script src="./components/DirectiveIf.js"></script>
-    <script src="./components/DirectiveFor.js"></script>
-    <script src="./components/DirectiveOn.js"></script>
-    <script src="./components/DirectiveHtml.js"></script>
-    <script src="./components/DirectiveModel.js"></script>
-    <script src="./components/slotCom/btnCom.js"></script>
-    <script src="./components/DirectiveSlot.js"></script>
-    <script src="./components/DirectivePreAndCloak.js"></script>
-    <script src="./components/VueDirectves.js"></script>
-    <script src="./components/index.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="/components/movies/movieFav.js"></script>
+    <script src="/components/movies/MovieComp.js"></script>
+    <script src="/components/movies/searchComp.js"></script>
+    <script src="/components/movies/detailsMovie.js"></script>
+    <script src="/components/movies/index.js"></script>
+    <script src="/components/movies/vm.js"></script>
 </body>
 </html>

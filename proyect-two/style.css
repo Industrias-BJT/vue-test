@@ -87,7 +87,7 @@ img {
   display: -ms-inline-flexbox;
   display: inline-flex;
   position: absolute;
-  left: 10.3%;
+  left: 5.3%;
 }
 
 .contentForm .contentSearch .input-grup-append .btn-neg {
@@ -140,6 +140,37 @@ img {
           transform: scale(1);
 }
 
+.title {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.routerLink {
+  text-decoration: none;
+  background-color: #00aa8a;
+  display: inline;
+  font-size: 13px;
+  color: #fff;
+  height: 1.4em;
+  padding: 0.2em;
+  border-radius: .5em;
+  width: 44%;
+  margin: 1em;
+}
+
+.routerLink:hover {
+  background-color: #0091aac9;
+  border: 2px solid #008380;
+}
+
+.contentBTN {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 80%;
+      grid-template-columns: 80%;
+  grid-gap: 1.1em;
+}
+
 @media screen and (min-width: 400px) {
   .arow {
     -ms-grid-columns: (50vw)[2];
@@ -148,10 +179,16 @@ img {
 }
 
 @media screen and (min-width: 800px) {
+  .routerLink {
+    width: 30%;
+  }
   .arow {
     -ms-grid-columns: (30vw)[3];
         grid-template-columns: repeat(3, 30vw);
     grid-gap: 1em;
+  }
+  .input-grup-append {
+    left: 10.3% !important;
   }
 }
 /*# sourceMappingURL=style.css.map */
