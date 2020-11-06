@@ -1,20 +1,33 @@
+const APIKEY = '9b41d63c8dc37a4c09a8b3adbbd44f67'
+const BASEURL = 'https://api.themoviedb.org/3/'
 Vue.component('movie-app',{
     template:`
     <div class='compProps'>
-        <h1 v-text='title.one'></h1>
-        <div class="conteiner">
-            <div class="arow">
-                <MovieComp :ref="'movie-'+movie.id" class='movieComp' v-for='(movie, key) in movies' 
-                :key='key' 
-                :id='movie.id' 
-                :title='movie.title' 
-                :synopsis='movie.synopsis' 
-                :cover='movie.cover'
-                :like='movie.like'
-            />
+            <h5>{{user.name}} {{user.lastName}}</h5>
+            <SearchComp v-movel="searchMovies" />
+            <h1 v-text='title.one'></h1>
+            <div v-show="!Object.keys(searchMovies).length">
+                <div class="conteiner">
+                    <div class="arow">
+                        <MovieComp :ref="'movie-'+movie.id" class='movieComp' v-for='(movie, key) in movies' 
+                        :key='key' 
+                        :id='movie.id' 
+                        :title='movie.title' 
+                        :synopsis='movie.overview' 
+                        :cover='movie.poster_path'
+                        :like='movie.like'
+                    />
+                    </div>
+                </div>
+                <button v-for="(n,index) in total_pages" :key='index' class='btn_page' :class="{
+                    'btnLight': n != page,
+                    'btnLike': n == page
+                }"
+                @click='n_page(n)'
+                >{{n}}
+            </button>
             </div>
-        </div>
-            <movieFav ref='movieFav' :show.sync='showLike'/>
+            
         </div>
     `,
     data(){
@@ -23,63 +36,37 @@ Vue.component('movie-app',{
                 one:'movies'
             },
             movies:[
-                {
-                    id: 1,
-                    title: 'Titanic',
-                    synopsis: 'Durante las labores de recuperación de los restos del famoso trasatlántico Titanic, una anciana norteamericana se pone en contacto con la expedición para acudir…',
-                    cover: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/zraTDtulFw2wrpyuYf646k95MNq.jpg',
-                    like:false
-                },
-                {
-                    id: 2,
-                    title: 'El Rey León',
-                    synopsis: 'Un remake del clásico animado de Disney de 1994 El rey león que estará dirigido por Jon Favreu. Simba (Donald Glover) es el hijo del rey de los leones, Mufasa…',
-                    cover: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/3A8ca8WOBacCRujSKJ2tCVKsieQ.jpg',
-                    like:false
-                },
-                {
-                    id: 3,
-                    title: 'Toy Story',
-                    synopsis:'Woody siempre ha tenido claro cuál es su labor en el mundo y cuál es su prioridad: cuidar a su dueño, ya sea Andy o Bonnie. Sin embargo, Woody descubrirá lo grand…',
-                    cover: 'http://d1poh340f4imgl.cloudfront.net/upload/images/534x326/2015/05/20/66668be7c7f6ef8faea78a39ff2c8f89_534x326.jpg',
-                    like:false
-                }
+               
             ],
+            searchMovies:{
+
+            },
             showLike:false,
             user:{
                 name:'Milton',
                 lastName:'Estrada',
             },
-            oldUser:null
+            oldUser:null,
+            page:1,
+            total_pages:null,
+            n:[]
         }
     },
     components:{
         MovieComp,
-        movieFav
+        movieFav,
+        SearchComp
     },
     watch: {
-       user:{
-        handler: function (newValue,oldValue) {
-            console.log('New: ',newValue,' old: ',oldValue)
-        },
-        deep:true
-       },
-       'user.name':{
-        handler: function (newValue,oldValue) {
-            console.log('New: ',newValue,' old: ',oldValue)
-        },
-        deep:true
-       },
-       'user.lastName':{
-        handler: function (newValue,oldValue) {
-            console.log('New: ',newValue,' old: ',oldValue)
-        },
-        deep:true
-       }
+        page () {
+            this.getPopularMovies()
+        }
     },
     mounted(){
-        this.$refs.movieFav.message='cambio'
-        console.log(this.$refs.movieFav.message)
+        let locationURL = new URL(window.location.href)
+        this.page = locationURL.searchParams.get('page') || 1
+    
+        this.getPopularMovies()
     },
     methods:{
         setNameUser(e){
@@ -88,6 +75,28 @@ Vue.component('movie-app',{
         setLastNameUser(e){
             this.user.lastName =e.target.value
         },
+        n_page (page) {
+            this.page = page
+            this.getPopularMovies() 
+        },
+        getPopularMovies (){
+            const URL = `${BASEURL}discover/movie?sort_by=popularity.desc&api_key=${APIKEY}&page=${this.page}`
+            
+            fetch(URL)
+                .then(response => response.json())
+                /* .then(data =>{
+                    console.log(data)
+                }) */
+                .then(({results,page,total_pages}) => {
+                    this.total_pages=total_pages
+                    this.movies=results.map(m=>{
+                        m.poster_path=`https://image.tmdb.org/t/p/w185_and_h278_bestv2${m.poster_path}`
+                        m.like=false
+                        return m
+                    })
+                })
+               
+        }
 
     }
 })

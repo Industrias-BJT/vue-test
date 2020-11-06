@@ -2,7 +2,7 @@ let MovieComp = {
     template:`
         <div>
         <img :src='cover'></img>
-        <h2 >{{title | reverse | mayus}}</h2>
+        <h2 >{{title | mayus}}</h2>
         <p>{{synopsis | character}}</p>
         <button @click="toggleLike" :class="btnStatus" >
         <span v-text="like ? 'Favorite' : 'Add to Favorite' "></span>
@@ -23,7 +23,7 @@ let MovieComp = {
             },
             synopsis:{
                 type:String,
-                required:true
+                
             },
             cover:{
                 type:String,
@@ -49,11 +49,6 @@ let MovieComp = {
 
             }
         },
-        watch:{
-            like (newVal,oldVal){
-                console.log(newVal,oldVal)
-            }
-        },
         computed:{
             btnStatus(){
                 return this.like ? 'btnLike' : 'btnLight'
@@ -63,10 +58,6 @@ let MovieComp = {
             }
         },
         filters:{
-            reverse(value){
-                let word = value.split('')
-                return word.reverse().join('')
-            },
             mayus(value){
                 return value.toUpperCase()
             },

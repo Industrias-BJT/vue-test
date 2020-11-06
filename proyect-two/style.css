@@ -1,7 +1,11 @@
 .arow {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(1, 80vw);
-    justify-content: center;
+  -ms-grid-columns: (80vw)[1];
+      grid-template-columns: repeat(1, 80vw);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .arow .movieComp {
@@ -33,11 +37,11 @@
   color: #fff;
 }
 
-.arow .movieComp .btnLike {
+.btnLike {
   background-color: #00aa8a;
 }
 
-.arow .movieComp .btnLight {
+.btnLight {
   background-color: #00aa8b73;
 }
 
@@ -52,17 +56,101 @@ img {
   margin: auto;
 }
 
+.btn_page {
+  color: #fff;
+  width: 4em;
+  border: 1px solid #e84e1b;
+  margin: 0.2em;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.contentForm {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+.contentForm .form {
+  width: 100vw;
+}
+
+.contentForm .contentSearch {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+}
+
+.contentForm .contentSearch .input-grup-append {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  left: 10.3%;
+}
+
+.contentForm .contentSearch .input-grup-append .btn-neg {
+  border: 2px solid red;
+  background-color: #e84e1b;
+  padding: 6px;
+  height: 0.7em;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contentForm .contentSearch .input-grup-append .btn-neg:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.contentForm .contentSearch .input-grup-append .btn-neg .fas.fa-times {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.contentForm .contentSearch .input_form {
+  width: 75vw;
+  border: 1px solid #e84e1b;
+  padding: 0.3em;
+}
+
+.contentForm .contentSearch .input_form:focus {
+  border: 1px solid #008381ce;
+}
+
+.contentForm .contentSearch .input-grup {
+  position: absolute;
+  right: 6.2%;
+}
+
+.contentForm .contentSearch .input-grup .btn-grup-text {
+  background: #008380;
+  border: none;
+  width: 2em;
+  height: 2em;
+  cursor: pointer;
+}
+
+.contentForm .contentSearch .input-grup .btn-grup-text:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 @media screen and (min-width: 400px) {
   .arow {
-    
+    -ms-grid-columns: (50vw)[2];
         grid-template-columns: repeat(2, 50vw);
   }
 }
 
 @media screen and (min-width: 800px) {
   .arow {
-    -ms-grid-columns: (30vw);
-    grid-template-columns: repeat(3, 30vw);
+    -ms-grid-columns: (30vw)[3];
+        grid-template-columns: repeat(3, 30vw);
     grid-gap: 1em;
   }
 }

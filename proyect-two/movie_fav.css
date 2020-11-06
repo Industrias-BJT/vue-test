@@ -13,7 +13,7 @@
     position: relative;
     width: 100px;
     height: 90px;
-    animation: heartbeat 2s forwards;
+    animation: heartbeat 1s forwards;
     margin:0 auto
 }
 .movieFav:before,
